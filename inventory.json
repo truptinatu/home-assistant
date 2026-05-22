@@ -1,0 +1,27 @@
+[
+  {
+    "item": "extra towels",
+    "location": "Hall closet, top shelf",
+    "notes": "Behind the regular towels"
+  },
+  {
+    "item": "scissors",
+    "location": "Kitchen drawer, second from top",
+    "notes": ""
+  },
+  {
+    "item": "first aid kit",
+    "location": "Master bathroom, under the sink",
+    "notes": "Inside the blue box"
+  },
+  {
+    "item": "batteries",
+    "location": "Garage shelf, left side",
+    "notes": "AA and AAA in separate bags"
+  },
+  {
+    "item": "passports",
+    "location": "Office, top desk drawer",
+    "notes": "Inside the brown envelope"
+  }
+]
