@@ -1,27 +1,237 @@
 [
   {
-    "item": "extra towels",
-    "location": "Hall closet, top shelf",
-    "notes": "Behind the regular towels"
-  },
-  {
-    "item": "scissors",
-    "location": "Kitchen drawer, second from top",
+    "item": "tampons",
+    "location": "Bathroom → Wicker basket",
     "notes": ""
   },
   {
-    "item": "first aid kit",
-    "location": "Master bathroom, under the sink",
-    "notes": "Inside the blue box"
+    "item": "toiletries",
+    "location": "Bathroom → Wicker basket",
+    "notes": ""
   },
   {
-    "item": "batteries",
-    "location": "Garage shelf, left side",
-    "notes": "AA and AAA in separate bags"
+    "item": "sabon socks",
+    "location": "Bathroom → Wicker basket",
+    "notes": ""
   },
   {
-    "item": "passports",
-    "location": "Office, top desk drawer",
-    "notes": "Inside the brown envelope"
+    "item": "razer",
+    "location": "Bathroom → Wicker basket",
+    "notes": ""
+  },
+  {
+    "item": "waxing strips",
+    "location": "Bathroom → Wicker basket",
+    "notes": ""
+  },
+  {
+    "item": "contacts (nick)",
+    "location": "Bathroom → Wicker basket",
+    "notes": ""
+  },
+  {
+    "item": "panty liners",
+    "location": "Bathroom → Wicker basket",
+    "notes": ""
+  },
+  {
+    "item": "bath bomb",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "nail polish remover",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "moisturizing cream",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "loofahs",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "makeup removing cloth",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "utana",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "makeup hair band",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "undereye strips",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "foot pads",
+    "location": "Bathroom → Left black basket",
+    "notes": ""
+  },
+  {
+    "item": "shower filter",
+    "location": "Bathroom → Right black basket",
+    "notes": ""
+  },
+  {
+    "item": "hair color",
+    "location": "Bathroom → Right black basket",
+    "notes": ""
+  },
+  {
+    "item": "pouches",
+    "location": "Bathroom → Right black basket",
+    "notes": ""
+  },
+  {
+    "item": "nick's razer pouches",
+    "location": "Bathroom → Right black basket",
+    "notes": ""
+  },
+  {
+    "item": "safety pins",
+    "location": "Bathroom → Side door",
+    "notes": ""
+  },
+  {
+    "item": "body soap bar",
+    "location": "Bathroom → Side door",
+    "notes": ""
+  },
+  {
+    "item": "cotton swabs",
+    "location": "Bathroom → Left bottom drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "cotton rounds",
+    "location": "Bathroom → Left bottom drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "nuxe lift cream",
+    "location": "Bathroom → Left bottom drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "bandage",
+    "location": "Bathroom → Left bottom drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "bandaids",
+    "location": "Bathroom → Left bottom drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "sick on hooks (multi purpose)",
+    "location": "Bathroom → Left top drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "vitamin e oil",
+    "location": "Bathroom → Left top drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "tooth brushes (new)",
+    "location": "Bathroom → Left top drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "sink stopper",
+    "location": "Bathroom → Left top drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "ear syringe",
+    "location": "Bathroom → Left top drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "shower filter",
+    "location": "Bathroom → Left top drawer (Inside sink cabinet)",
+    "notes": ""
+  },
+  {
+    "item": "toys",
+    "location": "Bathroom → Wicker basket (vertical)",
+    "notes": ""
+  },
+  {
+    "item": "hair dryer",
+    "location": "Bathroom → Wicker basket (vertical)",
+    "notes": ""
+  },
+  {
+    "item": "attachments",
+    "location": "Bathroom → Wicker basket (vertical)",
+    "notes": ""
+  },
+  {
+    "item": "retainer cleaning",
+    "location": "Bathroom → Wicker basket (vertical)",
+    "notes": ""
+  },
+  {
+    "item": "extra toothpaste",
+    "location": "Bathroom → Pink pouch",
+    "notes": ""
+  },
+  {
+    "item": "huda beauty",
+    "location": "Bathroom → Pink pouch",
+    "notes": ""
+  },
+  {
+    "item": "extra unused toothbrushes",
+    "location": "Bathroom → Pink pouch",
+    "notes": ""
+  },
+  {
+    "item": "regular floss",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
+  },
+  {
+    "item": "hair spray",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
+  },
+  {
+    "item": "hair control force",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
+  },
+  {
+    "item": "ear wax remover",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
+  },
+  {
+    "item": "pepper spray",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
+  },
+  {
+    "item": "dry shampoo",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
+  },
+  {
+    "item": "makeup removing pads (reusable)",
+    "location": "Bathroom → Medicine cabinet",
+    "notes": ""
   }
 ]
