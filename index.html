@@ -526,8 +526,8 @@ async function init() {
   appendBot(`
     <div>Hey! 👋 Ask me where anything is, like:</div>
     <div class="chips" style="margin-top:8px">
-      <button class="chip" onclick="ask('where are the extra towels?')">extra towels?</button>
-      <button class="chip" onclick="ask('where are the scissors?')">scissors?</button>
+      <button class="chip" onclick="ask('where are the bandaids?')">bandaids?</button>
+      <button class="chip" onclick="ask('where is the hair dryer?')">hair dryer?</button>
       <button class="chip" onclick="ask('list')">show everything</button>
     </div>
   `);
@@ -563,9 +563,10 @@ function save() {
 function rebuildFuse() {
   fuse = new Fuse(inventory, {
     keys: ["item", "notes"],
-    threshold: 0.38,
+    threshold: 0.25,
     includeScore: true,
-    minMatchCharLength: 2,
+    minMatchCharLength: 3,
+    distance: 80,
   });
 }
 
