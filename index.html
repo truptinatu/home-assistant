@@ -509,8 +509,8 @@ function save() { localStorage.setItem(STORE_KEY, JSON.stringify(inventory)); }
 
 function rebuildFuse() {
   fuse = new Fuse(inventory, {
-    keys: ["item", "notes"], threshold: 0.25,
-    includeScore: true, minMatchCharLength: 3, distance: 80,
+    keys: ["item", "notes"], threshold: 0.3,
+    includeScore: true, minMatchCharLength: 2, distance: 100,
   });
 }
 
@@ -624,8 +624,10 @@ function route(raw) {
 
 function handleSearch(query) {
   const cleaned = query
-    .replace(/where (are|is|do i find|can i find|did i put|are the|is the|did you put)/gi, "")
-    .replace(/\?/g, "").trim();
+    .replace(/where (are the|is the|are|is|do i find|can i find|did i put|did you put)/gi, "")
+    .replace(/\?/g, "")
+    .replace(/^\s*(the|a|an)\s+/i, "")   // strip leftover leading article
+    .trim();
   const results = fuse.search(cleaned);
   if (results.length === 0) {
     appendBot(`I don't have <b>${escHtml(cleaned)}</b> in the inventory yet.<br>
