@@ -908,7 +908,7 @@ document.getElementById("add-location").addEventListener("keydown", e => {
 // Auth — SHA-256 password gate
 // Change via: bash set-password.sh
 // ─────────────────────────────────────────────
-const PASSWORD_HASH = "c84a82376e398e6ae3a8099feaeca4a5f45b2c9a410872f3c548bfaf90047f99"; // default: home123
+const PASSWORD_HASH = "3f8621a87f5a5470030bba47e8687829687c74dabe1372aa08ff78732adbd73f"; // default: home123
 
 async function sha256(str) {
   const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
