@@ -423,6 +423,7 @@
   <span class="header-count" id="count">— items</span>
   <div class="header-actions">
     <button class="icon-btn" onclick="openSettings()" title="Sync settings">⚙️</button>
+    <button class="icon-btn" onclick="lockApp()" title="Lock">🔒</button>
   </div>
 </header>
 
@@ -937,6 +938,14 @@ async function checkPassword() {
 document.getElementById("pw-input").addEventListener("keydown", e => {
   if (e.key === "Enter") checkPassword();
 });
+
+function lockApp() {
+  sessionStorage.removeItem("ha_auth");
+  document.getElementById("pw-input").value = "";
+  document.getElementById("pw-error").textContent = "";
+  document.getElementById("pw-overlay").style.display = "flex";
+  document.getElementById("pw-input").focus();
+}
 
 // ─────────────────────────────────────────────
 // Start
