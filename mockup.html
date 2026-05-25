@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>UI Options Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f4f1;--surface:#fff;--dark:#1c1917;--accent:#d97706;
+  --accent-lt:#fef3c7;--muted:#78716c;--border:#e7e5e4;
+  --success:#16a34a;--danger:#dc2626;--radius:18px;
+  --shadow:0 1px 6px rgba(0,0,0,.08);
+}
+body{font-family:'Inter',sans-serif;background:#e8e6e0;padding:32px 16px;min-height:100vh;}
+
+h1{text-align:center;font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:6px;}
+.subtitle{text-align:center;font-size:0.82rem;color:var(--muted);margin-bottom:36px;}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto;}
+
+/* Phone shell */
+.phone{
+  background:var(--dark);border-radius:36px;padding:10px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.25);width:300px;margin:0 auto;
+  position:relative;
+}
+.phone-notch{
+  width:80px;height:22px;background:var(--dark);border-radius:0 0 14px 14px;
+  margin:0 auto 6px;position:relative;z-index:2;
+}
+.phone-screen{
+  background:var(--bg);border-radius:28px;overflow:hidden;
+  height:580px;position:relative;display:flex;flex-direction:column;
+}
+
+/* Shared phone UI */
+.p-header{background:var(--dark);color:#fff;padding:11px 14px;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.p-header-icon{font-size:1rem;}
+.p-header-title{font-size:0.85rem;font-weight:600;}
+.p-header-count{font-size:0.65rem;color:rgba(255,255,255,.45);background:rgba(255,255,255,.1);padding:2px 7px;border-radius:20px;}
+.p-header-actions{margin-left:auto;display:flex;gap:4px;}
+.p-icon-btn{background:rgba(255,255,255,.12);border:none;color:#fff;border-radius:7px;width:28px;height:28px;font-size:0.8rem;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+
+.p-chat{flex:1;overflow:hidden;padding:12px 10px 6px;display:flex;flex-direction:column;gap:8px;}
+.bubble{max-width:85%;padding:9px 12px;border-radius:14px;font-size:0.78rem;line-height:1.5;}
+.bubble.user{align-self:flex-end;background:var(--dark);color:#fff;border-bottom-right-radius:4px;}
+.bubble.bot{align-self:flex-start;background:#fff;color:var(--dark);box-shadow:var(--shadow);border-bottom-left-radius:4px;}
+.bubble .loc{font-weight:700;color:var(--accent);font-size:0.85rem;}
+.bubble .tag{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;}
+
+.p-input-wrap{background:#fff;border-top:1px solid var(--border);padding:8px 10px;flex-shrink:0;}
+.p-input-row{display:flex;gap:6px;align-items:center;}
+.p-input{flex:1;border:1.5px solid var(--border);border-radius:18px;padding:7px 12px;font-size:0.75rem;font-family:inherit;background:var(--bg);outline:none;color:var(--dark);}
+.p-send{width:32px;height:32px;border-radius:50%;background:var(--dark);border:none;color:#fff;font-size:0.85rem;display:flex;align-items:center;justify-content:center;}
+
+/* Card */
+.card{background:#fff;border-radius:20px;padding:20px;box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.option-label{
+  display:inline-block;background:var(--dark);color:#fff;
+  font-size:0.7rem;font-weight:700;padding:3px 10px;border-radius:20px;
+  margin-bottom:10px;letter-spacing:.02em;
+}
+.option-title{font-size:1rem;font-weight:700;margin-bottom:4px;color:var(--dark);}
+.option-desc{font-size:0.8rem;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+.pros-cons{display:flex;gap:12px;margin-top:12px;}
+.pro,.con{font-size:0.72rem;padding:3px 8px;border-radius:6px;}
+.pro{background:#dcfce7;color:#15803d;}
+.con{background:#fee2e2;color:#b91c1c;}
+
+/* ── OPTION A: Inline edit ── */
+.inv-card{border:1px solid var(--border);border-radius:10px;padding:9px 10px;display:flex;align-items:center;gap:8px;margin-bottom:6px;background:#fff;}
+.inv-card .name{font-size:0.78rem;font-weight:600;flex:1;}
+.inv-card .loc-small{font-size:0.7rem;color:var(--accent);}
+.inv-edit-btn{background:none;border:none;font-size:0.8rem;color:var(--muted);cursor:pointer;padding:2px 4px;border-radius:4px;}
+.inv-edit-btn:hover{color:var(--accent);}
+.inv-card.editing{border-color:var(--accent);flex-direction:column;align-items:stretch;background:var(--accent-lt);}
+.inv-card.editing input{border:1.5px solid var(--accent);border-radius:7px;padding:5px 8px;font-size:0.75rem;font-family:inherit;margin-bottom:4px;outline:none;background:#fff;}
+.inv-card.editing .edit-actions{display:flex;gap:6px;}
+.edit-save{background:var(--dark);color:#fff;border:none;border-radius:7px;padding:5px 12px;font-size:0.72rem;font-weight:600;cursor:pointer;}
+.edit-cancel{background:none;border:1px solid var(--border);border-radius:7px;padding:5px 10px;font-size:0.72rem;cursor:pointer;color:var(--muted);}
+
+/* ── OPTION B: FAB + modal ── */
+.fab{
+  position:absolute;bottom:64px;right:12px;
+  width:40px;height:40px;border-radius:50%;
+  background:var(--accent);color:#fff;border:none;
+  font-size:1.3rem;box-shadow:0 4px 14px rgba(217,119,6,.4);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  z-index:10;
+}
+.modal-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.35);
+  display:flex;align-items:flex-end;z-index:20;border-radius:28px;
+  backdrop-filter:blur(2px);
+}
+.modal-sheet{
+  background:#fff;border-radius:18px 18px 28px 28px;padding:18px 16px;
+  width:100%;
+}
+.modal-handle{width:36px;height:3px;background:var(--border);border-radius:2px;margin:0 auto 14px;}
+.modal-title{font-size:0.9rem;font-weight:700;margin-bottom:14px;color:var(--dark);}
+.modal-field{margin-bottom:10px;}
+.modal-field label{font-size:0.7rem;font-weight:600;display:block;margin-bottom:4px;color:var(--muted);}
+.modal-field input{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:8px 10px;font-size:0.78rem;font-family:inherit;outline:none;}
+.modal-field input:focus{border-color:var(--accent);}
+.modal-btn{width:100%;background:var(--dark);color:#fff;border:none;border-radius:10px;padding:10px;font-size:0.82rem;font-weight:600;cursor:pointer;margin-top:4px;}
+
+/* ── OPTION C: slide-up quick form ── */
+.quick-add-bar{background:var(--accent-lt);border-top:1px solid #fde68a;padding:8px 10px;flex-shrink:0;}
+.quick-add-row{display:flex;gap:6px;align-items:center;}
+.qa-input{flex:1;border:1.5px solid #fde68a;border-radius:9px;padding:6px 10px;font-size:0.72rem;font-family:inherit;background:#fff;outline:none;}
+.qa-input:focus{border-color:var(--accent);}
+.qa-save{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:6px 12px;font-size:0.72rem;font-weight:600;cursor:pointer;}
+.qa-label{font-size:0.68rem;font-weight:600;color:var(--accent);margin-bottom:5px;}
+
+/* ── OPTION D: Swipe ── */
+.swipe-row{position:relative;margin-bottom:6px;border-radius:10px;overflow:hidden;}
+.swipe-actions{position:absolute;right:0;top:0;bottom:0;display:flex;align-items:stretch;}
+.swipe-action-edit{background:#3b82f6;color:#fff;padding:0 14px;display:flex;align-items:center;font-size:0.72rem;font-weight:600;gap:3px;}
+.swipe-action-del{background:var(--danger);color:#fff;padding:0 14px;display:flex;align-items:center;font-size:0.72rem;font-weight:600;gap:3px;}
+.swipe-item{background:#fff;border:1px solid var(--border);border-radius:10px;padding:9px 10px;display:flex;align-items:center;gap:8px;transform:translateX(-88px);position:relative;z-index:1;}
+
+/* ── OPTION E: Manage tab ── */
+.tabs{display:flex;background:rgba(0,0,0,.15);border-radius:0;flex-shrink:0;}
+.tab{flex:1;padding:9px;font-size:0.72rem;font-weight:600;border:none;background:none;color:rgba(255,255,255,.6);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:4px;}
+.tab.active{background:#fff;color:var(--dark);border-radius:0;}
+.manage-view{flex:1;overflow:hidden;display:flex;flex-direction:column;background:var(--bg);}
+.manage-add{margin:10px;display:flex;gap:6px;}
+.manage-add input{flex:1;border:1.5px solid var(--border);border-radius:9px;padding:7px 10px;font-size:0.72rem;font-family:inherit;background:#fff;outline:none;}
+.manage-add-btn{background:var(--dark);color:#fff;border:none;border-radius:9px;padding:7px 12px;font-size:0.72rem;font-weight:600;cursor:pointer;white-space:nowrap;}
+.manage-table{flex:1;overflow-y:auto;padding:0 10px 10px;}
+.manage-row{background:#fff;border:1px solid var(--border);border-radius:9px;padding:8px 10px;margin-bottom:5px;display:flex;align-items:center;gap:8px;}
+.manage-row .name{font-size:0.75rem;font-weight:600;flex:1;}
+.manage-row .loc-m{font-size:0.7rem;color:var(--accent);flex:1.2;}
+.manage-row-actions{display:flex;gap:4px;}
+.mr-btn{background:none;border:1px solid var(--border);border-radius:6px;padding:3px 7px;font-size:0.68rem;cursor:pointer;color:var(--muted);}
+.mr-btn.del{color:var(--danger);border-color:#fecaca;}
+</style>
+</head>
+<body>
+
+<h1>Add / Update / Delete — UI Options</h1>
+<p class="subtitle">Visual mockups · pick what feels right</p>
+
+<div class="grid">
+
+  <!-- ── A ── -->
+  <div class="card">
+    <div class="option-label">Option A</div>
+    <div class="option-title">Inline edit in inventory panel</div>
+    <div class="option-desc">Tap ✏️ on any item card — it expands into an editable form right there. No popups.</div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="p-header">
+          <span class="p-header-icon">🏠</span>
+          <span class="p-header-title">Home Assistant</span>
+          <span class="p-header-count">47 items</span>
+          <div class="p-header-actions">
+            <div class="p-icon-btn">⚙️</div>
+            <div class="p-icon-btn">📋</div>
+          </div>
+        </div>
+        <div style="padding:10px;flex:1;overflow:hidden;background:var(--bg);">
+          <div style="font-size:0.7rem;font-weight:600;color:var(--muted);margin-bottom:8px;">📋 All Items</div>
+          <!-- normal card -->
+          <div class="inv-card">
+            <div style="flex:1"><div class="name">tampons</div><div class="loc-small">📍 Bathroom → Wicker basket</div></div>
+            <button class="inv-edit-btn">✏️</button>
+            <button class="inv-edit-btn" style="color:#fca5a5">✕</button>
+          </div>
+          <!-- editing card -->
+          <div class="inv-card editing">
+            <div style="font-size:0.68rem;font-weight:600;color:var(--accent);margin-bottom:6px;">Editing: bandaids</div>
+            <input value="bandaids" placeholder="Item name"/>
+            <input value="Bathroom → Left bottom drawer" placeholder="Location"/>
+            <div class="edit-actions">
+              <button class="edit-save">Save</button>
+              <button class="edit-cancel">Cancel</button>
+            </div>
+          </div>
+          <!-- normal card -->
+          <div class="inv-card">
+            <div style="flex:1"><div class="name">hair dryer</div><div class="loc-small">📍 Bathroom → Wicker basket (vertical)</div></div>
+            <button class="inv-edit-btn">✏️</button>
+            <button class="inv-edit-btn" style="color:#fca5a5">✕</button>
+          </div>
+          <div class="inv-card">
+            <div style="flex:1"><div class="name">dry shampoo</div><div class="loc-small">📍 Bathroom → Medicine cabinet</div></div>
+            <button class="inv-edit-btn">✏️</button>
+            <button class="inv-edit-btn" style="color:#fca5a5">✕</button>
+          </div>
+        </div>
+        <div class="p-input-wrap">
+          <div class="p-input-row">
+            <input class="p-input" placeholder="Where are the bandaids?" readonly/>
+            <div class="p-send">➤</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <span class="pro">✓ Contextual</span>
+      <span class="pro">✓ No extra screens</span>
+      <span class="con">✗ Panel must be open</span>
+    </div>
+  </div>
+
+  <!-- ── B ── -->
+  <div class="card">
+    <div class="option-label">Option B</div>
+    <div class="option-title">Floating button + bottom sheet</div>
+    <div class="option-desc">A persistent ＋ button on the main chat. Tapping it slides up a form from the bottom.</div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen" style="position:relative;">
+        <div class="p-header">
+          <span class="p-header-icon">🏠</span>
+          <span class="p-header-title">Home Assistant</span>
+          <span class="p-header-count">47 items</span>
+          <div class="p-header-actions">
+            <div class="p-icon-btn">⚙️</div>
+            <div class="p-icon-btn">📋</div>
+          </div>
+        </div>
+        <div class="p-chat">
+          <div class="bubble bot"><span class="tag">hair dryer</span><span class="loc">📍 Bathroom → Wicker basket (vertical)</span></div>
+          <div class="bubble user">where are bandaids?</div>
+          <div class="bubble bot"><span class="tag">bandaids</span><span class="loc">📍 Bathroom → Left bottom drawer</span></div>
+        </div>
+        <div class="p-input-wrap">
+          <div class="p-input-row">
+            <input class="p-input" placeholder="Ask anything…" readonly/>
+            <div class="p-send">➤</div>
+          </div>
+        </div>
+        <!-- FAB -->
+        <button class="fab">＋</button>
+        <!-- Modal -->
+        <div class="modal-overlay">
+          <div class="modal-sheet">
+            <div class="modal-handle"></div>
+            <div class="modal-title">➕ Add Item</div>
+            <div class="modal-field">
+              <label>ITEM NAME</label>
+              <input placeholder="e.g. cotton rounds" value="vitamin c serum"/>
+            </div>
+            <div class="modal-field">
+              <label>LOCATION</label>
+              <input placeholder="e.g. Bathroom → Medicine cabinet" value="Bathroom → Left black basket"/>
+            </div>
+            <button class="modal-btn">Save Item</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <span class="pro">✓ Always visible</span>
+      <span class="pro">✓ Familiar pattern</span>
+      <span class="con">✗ Extra tap</span>
+    </div>
+  </div>
+
+  <!-- ── C ── -->
+  <div class="card">
+    <div class="option-label">Option C</div>
+    <div class="option-title">Quick-add bar above input</div>
+    <div class="option-desc">A compact 2-field strip lives just above the keyboard — item and location side by side. Always in reach without leaving chat.</div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="p-header">
+          <span class="p-header-icon">🏠</span>
+          <span class="p-header-title">Home Assistant</span>
+          <span class="p-header-count">47 items</span>
+          <div class="p-header-actions">
+            <div class="p-icon-btn">⚙️</div>
+            <div class="p-icon-btn">📋</div>
+          </div>
+        </div>
+        <div class="p-chat">
+          <div class="bubble bot"><span class="tag">hair dryer</span><span class="loc">📍 Bathroom → Wicker basket (vertical)</span></div>
+          <div class="bubble user">where are bandaids?</div>
+          <div class="bubble bot"><span class="tag">bandaids</span><span class="loc">📍 Bathroom → Left bottom drawer</span></div>
+        </div>
+        <!-- Quick add bar -->
+        <div class="quick-add-bar">
+          <div class="qa-label">＋ Add new item</div>
+          <div class="quick-add-row">
+            <input class="qa-input" placeholder="Item…" value="vitamin c serum" readonly/>
+            <input class="qa-input" placeholder="Location…" value="Left basket" readonly/>
+            <button class="qa-save">Save</button>
+          </div>
+        </div>
+        <div class="p-input-wrap">
+          <div class="p-input-row">
+            <input class="p-input" placeholder="Ask anything…" readonly/>
+            <div class="p-send">➤</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <span class="pro">✓ Stays in chat flow</span>
+      <span class="pro">✓ No extra tap</span>
+      <span class="con">✗ Cramped on small screens</span>
+    </div>
+  </div>
+
+  <!-- ── D ── -->
+  <div class="card">
+    <div class="option-label">Option D</div>
+    <div class="option-title">Swipe actions (mobile-first)</div>
+    <div class="option-desc">Swipe left on any item in the panel to reveal Delete & Edit actions. Native mobile feel.</div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="p-header">
+          <span class="p-header-icon">🏠</span>
+          <span class="p-header-title">Home Assistant</span>
+          <span class="p-header-count">47 items</span>
+          <div class="p-header-actions">
+            <div class="p-icon-btn">⚙️</div>
+            <div class="p-icon-btn">📋</div>
+          </div>
+        </div>
+        <div style="padding:10px;flex:1;overflow:hidden;background:var(--bg);">
+          <div style="font-size:0.7rem;font-weight:600;color:var(--muted);margin-bottom:8px;">📋 All Items &nbsp;<span style="font-weight:400;color:#a8a29e">← swipe left to edit</span></div>
+          <!-- normal -->
+          <div class="swipe-row">
+            <div class="swipe-item" style="transform:translateX(0)">
+              <div style="flex:1"><div class="name">tampons</div><div class="loc-small">📍 Wicker basket</div></div>
+            </div>
+          </div>
+          <!-- swiped -->
+          <div class="swipe-row" style="height:44px;">
+            <div class="swipe-actions">
+              <div class="swipe-action-edit">✏️ Edit</div>
+              <div class="swipe-action-del">🗑 Del</div>
+            </div>
+            <div class="swipe-item">
+              <div style="flex:1"><div class="name">bandaids</div><div class="loc-small">📍 Left bottom drawer</div></div>
+            </div>
+          </div>
+          <!-- normal -->
+          <div class="swipe-row">
+            <div class="swipe-item" style="transform:translateX(0)">
+              <div style="flex:1"><div class="name">hair dryer</div><div class="loc-small">📍 Wicker basket (vertical)</div></div>
+            </div>
+          </div>
+          <div class="swipe-row">
+            <div class="swipe-item" style="transform:translateX(0)">
+              <div style="flex:1"><div class="name">dry shampoo</div><div class="loc-small">📍 Medicine cabinet</div></div>
+            </div>
+          </div>
+          <div style="margin-top:12px;text-align:center;font-size:0.7rem;color:var(--muted);">← Swipe any item to reveal actions</div>
+        </div>
+        <div class="p-input-wrap">
+          <div class="p-input-row">
+            <input class="p-input" placeholder="Ask anything…" readonly/>
+            <div class="p-send">➤</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <span class="pro">✓ Very mobile-native</span>
+      <span class="pro">✓ Clean, no clutter</span>
+      <span class="con">✗ Not obvious on desktop</span>
+    </div>
+  </div>
+
+  <!-- ── E ── -->
+  <div class="card">
+    <div class="option-label">Option E</div>
+    <div class="option-title">Dedicated Manage tab</div>
+    <div class="option-desc">A second tab alongside chat — a full editable table. Add at top, edit inline, delete per row.</div>
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="p-header">
+          <span class="p-header-icon">🏠</span>
+          <span class="p-header-title">Home Assistant</span>
+          <span class="p-header-count">47 items</span>
+          <div class="p-header-actions">
+            <div class="p-icon-btn">⚙️</div>
+          </div>
+        </div>
+        <div class="tabs">
+          <button class="tab">💬 Chat</button>
+          <button class="tab active">📋 Manage</button>
+        </div>
+        <div class="manage-view">
+          <div class="manage-add">
+            <input placeholder="Item name…" value="vitamin c serum" readonly/>
+            <input placeholder="Location…" style="border:1.5px solid var(--border);border-radius:9px;padding:7px 10px;font-size:0.72rem;font-family:inherit;background:#fff;outline:none;" value="Left basket" readonly/>
+            <button class="manage-add-btn">＋ Add</button>
+          </div>
+          <div class="manage-table">
+            <div class="manage-row">
+              <span class="name">bandaids</span>
+              <span class="loc-m">Left bottom drawer</span>
+              <div class="manage-row-actions">
+                <button class="mr-btn">✏️</button>
+                <button class="mr-btn del">🗑</button>
+              </div>
+            </div>
+            <div class="manage-row">
+              <span class="name">tampons</span>
+              <span class="loc-m">Wicker basket</span>
+              <div class="manage-row-actions">
+                <button class="mr-btn">✏️</button>
+                <button class="mr-btn del">🗑</button>
+              </div>
+            </div>
+            <div class="manage-row">
+              <span class="name">hair dryer</span>
+              <span class="loc-m">Wicker basket (vertical)</span>
+              <div class="manage-row-actions">
+                <button class="mr-btn">✏️</button>
+                <button class="mr-btn del">🗑</button>
+              </div>
+            </div>
+            <div class="manage-row">
+              <span class="name">dry shampoo</span>
+              <span class="loc-m">Medicine cabinet</span>
+              <div class="manage-row-actions">
+                <button class="mr-btn">✏️</button>
+                <button class="mr-btn del">🗑</button>
+              </div>
+            </div>
+            <div class="manage-row">
+              <span class="name">cotton rounds</span>
+              <span class="loc-m">Left bottom drawer</span>
+              <div class="manage-row-actions">
+                <button class="mr-btn">✏️</button>
+                <button class="mr-btn del">🗑</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pros-cons">
+      <span class="pro">✓ Most powerful</span>
+      <span class="pro">✓ Great on desktop</span>
+      <span class="con">✗ Leaves chat flow</span>
+      <span class="con">✗ Most complex</span>
+    </div>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:32px;font-size:0.78rem;color:#a8a29e;">These are static mockups — pick one (or mix) and I'll build it.</p>
+</body>
+</html>
