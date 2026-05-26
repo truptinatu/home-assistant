@@ -516,8 +516,10 @@
 // ─────────────────────────────────────────────
 let inventory = [];
 let fuse;
-const STORE_KEY = "ha_inventory_v3";
-const SETT_KEY  = "ha_settings";
+// Key is path-scoped so each deployment has its own storage
+const _pathKey  = location.pathname.replace(/\//g, "_").replace(/^_|_$/g, "") || "root";
+const STORE_KEY = `ha_inventory_${_pathKey}`;
+const SETT_KEY  = `ha_settings_${_pathKey}`;
 
 // ─────────────────────────────────────────────
 // Boot
@@ -557,6 +559,15 @@ function switchTab(tab) {
 // Inventory persistence
 // ─────────────────────────────────────────────
 async function loadInventory() {
+  // Migrate from old shared key if new key is empty
+  const OLD_KEY = "ha_inventory_v3";
+  if (!localStorage.getItem(STORE_KEY) && localStorage.getItem(OLD_KEY)) {
+    const old = JSON.parse(localStorage.getItem(OLD_KEY));
+    if (Array.isArray(old) && old.length > 0) {
+      localStorage.setItem(STORE_KEY, JSON.stringify(old));
+      localStorage.removeItem(OLD_KEY);
+    }
+  }
   const saved = localStorage.getItem(STORE_KEY);
   if (saved) { try { inventory = JSON.parse(saved); return; } catch {} }
   try {
